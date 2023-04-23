@@ -24,6 +24,11 @@ function Layout({ children }) {
       path: "/apply-doctor",
       icon: "ri-hospital-line",
     },
+    {
+      name: "Website",
+      path: "/oldhome",
+      icon: "ri-reply-fill",
+    },
   ];
 
   const doctorMenu = [
@@ -35,20 +40,51 @@ function Layout({ children }) {
     {
       name: "Appointments",
       path: "/doctor/appointments",
-      icon: "ri-file-list-line",
+      icon: "ri-calendar-check-fill",
     },
     {
       name: "Profile",
       path: `/doctor/profile/${user?._id}`,
       icon: "ri-user-line",
     },
+    {
+      name: "Website",
+      path: "/oldhome",
+      icon: "ri-reply-fill",
+    },
   ];
 
   const adminMenu = [
     {
       name: "Home",
-      path: "/",
+      path: "/adhome",
       icon: "ri-home-line",
+    },
+    // {
+    //   name:"Home",
+    //   path:"/adhome/employee/create",
+    //   icon:"ri-home-line",
+    // },
+    // {
+    //   name:"Home",
+    //   path:"/adhome/employee/detail/:empid",
+    //   icon:"ri-home-line",
+    // },
+    // {
+    //   name:"Home",
+    //   path:"/adhome/employee/edit/:empid",
+    //   icon:"ri-home-line",
+    // },
+
+    // {
+    //   name:'Doctor Teams',
+    //   path:'/admin/Appointmentslist',
+    //   icon:"ri-file-list-line",
+    // },
+    {
+      name:'Appointments',
+      path:'/admin/Appointmentslist',
+      icon:"ri-file-list-line",
     },
     {
       name: "Users",
@@ -59,6 +95,11 @@ function Layout({ children }) {
       name: "Doctors",
       path: "/admin/doctorslist",
       icon: "ri-user-star-line",
+    },
+    {
+      name: "Website",
+      path: "/oldhome",
+      icon: "ri-reply-fill",
     },
   ];
 
@@ -73,7 +114,7 @@ function Layout({ children }) {
       <div className="d-flex layout">
         <div className="sidebar">
           <div className="sidebar-header">
-            <h1 className="logo">DA</h1>
+            <h1 className="logo">HAPILYF</h1>
             <h1 className="role">{role}</h1>
           </div>
           <div className="menu">
@@ -126,9 +167,9 @@ function Layout({ children }) {
                 <i class="ri-notification-line header-action-icon mr-2 px-3"></i>
               </Badge>
 
-              <Link className="anchor mx-2" to="/profile">
+              <h2 className="anchor mx-2">
                 {user?.name}
-              </Link>
+              </h2>
             </div>
           </div>
 

@@ -1,8 +1,24 @@
 import { Button, Col, Form, Input, Row, TimePicker } from "antd";
 import React from "react";
 import moment from "moment";
-
+import { useState } from "react";
+import axios from 'axios'
 function DoctorForm({ onFinish, initialValues }) {
+  const [input,setInput]=useState({fullname:"",username:"",password:"",email:"",cpassword:"",number:"",type:"User"});
+  const [image,setImage]=useState({data:''});
+  const handleChanges=(event)=>{
+            
+    const img = {
+        data: event.target.files[0],
+      }
+    setImage(img)
+}
+  let formData = new FormData()
+  formData.append('file', image.data)
+  axios.post('http://localhost:5000/image', 
+  formData
+  )
+
   return (
     <Form
       layout="vertical"
@@ -57,6 +73,18 @@ function DoctorForm({ onFinish, initialValues }) {
             rules={[{ required: true }]}
           >
             <Input placeholder="Website" />
+          </Form.Item>
+        </Col>
+        <Col span={8} xs={24} sm={24} lg={8}>
+          <Form.Item
+            required
+            label="Certificate"
+            name="MedicalCertificate"
+            rules={[{ required: true }]}
+          >
+            <Input type="file" name="file" value={input.file} onChange={handleChanges} placeholder="Certificate" />
+            {/* <Input type="file" name="file" placeholder="Certificate" /> */}
+
           </Form.Item>
         </Col>
         <Col span={8} xs={24} sm={24} lg={8}>

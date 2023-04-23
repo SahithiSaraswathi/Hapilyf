@@ -5,7 +5,6 @@ import { showLoading, hideLoading } from "../../redux/alertsSlice";
 import axios from "axios";
 import { Button, Table } from "antd";
 import { toast } from "react-hot-toast";
-
 function DoctorList() {
   const [doctors, setDoctors] = useState([]);
   const dispatch = useDispatch();
@@ -29,7 +28,7 @@ function DoctorList() {
   const changeDoctorStatus = async (record, status) => {
     try {
       dispatch(showLoading());
-      const response = await axios.post(
+      const response = await axios.put(
         "/api/admin/change-account-doctor-status",
         { doctorId: record._id, userId: record.userId, status: status },
         {
@@ -96,7 +95,7 @@ function DoctorList() {
               Block
             </Button>
           )}
-          {record.status === "Blocked" && (
+          {(record.status === "Blocked" ||record.status === "blocked") && (
             <Button style={{ background: "lime",}}
               className="anchor"
               onClick={() => changeDoctorStatus(record, "approved")}

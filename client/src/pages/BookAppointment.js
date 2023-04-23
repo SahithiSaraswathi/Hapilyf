@@ -6,7 +6,7 @@ import { showLoading, hideLoading } from "../redux/alertsSlice";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-
+var gh=0;
 function BookAppointment() {
   const [isAvailable, setIsAvailable] = useState(false);
   const navigate = useNavigate();
@@ -57,11 +57,10 @@ function BookAppointment() {
         }
       );
       dispatch(hideLoading());
-      if (response.data.success) {
+      if (response.data.success ) {
         toast.success(response.data.message);
+
         setIsAvailable(true);
-      } else {
-        toast.error(response.data.message);
       }
     } catch (error) {
       toast.error("Error booking appointment");
@@ -123,7 +122,7 @@ function BookAppointment() {
             </Col>
             <Col span={8} sm={24} xs={24} lg={8}>
               <h1 className="normal-text">
-                <b>Timings :</b> {doctor.timings[0]} - {doctor.timings[1]}
+                {/* <b>Timings :</b> {doctor.timings[0]} - {doctor.timings[1]} */}
               </h1>
               <p>
                 <b>Specialization : </b>
@@ -162,8 +161,20 @@ function BookAppointment() {
                   format="HH:mm"
                   className="mt-3"
                   onChange={(value) => {
-                    setTime(value.format("HH:mm"));
-                    setIsAvailable(false);
+                   setTime(value.format("HH:mm"));
+                  const t=value.format("HH:mm")
+                 if(t>=doctor.timings[0] && t<=doctor.timings[1]){
+                //  setIsAvailable(true);
+                //  alert("yes");
+                 gh=1;
+                }
+                 else{
+                  alert("Enter proper timing")
+                  // setIsAvailable(false);
+                return 0;
+                 }
+                    
+                    
                   }}
                 />
 

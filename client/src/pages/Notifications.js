@@ -35,7 +35,8 @@ function Notifications() {
 
   const deleteAll=async()=>{
     try {
-        dispatch(showLoading());
+        // dispatch(showLoading());
+        console.log("deleteall")
         const response = await axios.post("/api/user/delete-all-notifications", {userId : user._id} , {
             headers: {
                 Authorization : `Bearer ${localStorage.getItem("token")}`

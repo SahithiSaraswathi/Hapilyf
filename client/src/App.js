@@ -14,7 +14,28 @@ import DoctorList from "./pages/Admin/DoctorsList";
 import Profile from "./pages/Doctor/Profile";
 import BookAppointment from "./pages/BookAppointment";
 import Appointments from "./pages/Appointments";
+import Appointmentslist from "./pages/Admin/AppointmentsList";
 import DoctorAppointments from "./pages/Doctor/DoctorAppointments";
+import Dashboard from "./dashboard/";
+import DoctorP1 from "./components/DoctorP/DoctorP1"
+import DoctorP2 from "./components/DoctorP/DoctorP2"
+import DoctorP3 from "./components/DoctorP/DoctorP3"
+import DoctorP4 from "./components/DoctorP/DoctorP4"
+import DoctorP5 from "./components/DoctorP/DoctorP5"
+import DoctorP6 from "./components/DoctorP/DoctorP6"
+import Search from "./components/Search";
+import BehaviourT from "./components/BehaviourT/BehaviourT";
+import ChildTher from "./components/ChildTher/ChildTher";
+import ClinicalT from "./components/ClinicalT/ClinicalT"
+import Contact from "./components/Contact/Contact"
+import AdminHome from "./pages/Admin/AdminHome";
+import OldHome from "./components/Home/Home"
+import OurServices from "./components/OurServices/OurServices";
+import OurCounsellors from "./components/OurCounsellors/OurCounsellors";
+import EmpCreate from "./dashboard/EmpCreate";
+import EmpDetail from "./dashboard/EmpDetail";
+import EmpEdit from "./dashboard/EmpEdit";
+// import Det from "./components/count";
 function App() {
   const { loading } = useSelector((state) => state.alerts);
   return (
@@ -35,13 +56,52 @@ function App() {
               </PublicRoute>
             }
           />
+          <Route
+            path="/oldhome"
+            element={
+                <OldHome/>
+            }
+          />
+          <Route
+            path="/search"
+            element={
+                <Search/>
+            }
+          />
+          <Route
+            path="/ourservice"
+            element={
+                <OurServices/>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              // <PublicRoute>
+                <Contact/>
+              // </PublicRoute>
+            }
+          />
+               <Route path="/profile1" element={<DoctorP1/>} />
+                <Route path="/profile2" element={<DoctorP2/>} />
+                <Route path="/profile3" element={<DoctorP3/>} />
+                <Route path="/profile4" element={<DoctorP4/>} />
+                <Route path="/profile5" element={<DoctorP5/>} />
+                <Route path="/profile6" element={<DoctorP6/>} />
+                <Route path="/bt" element={<BehaviourT/>}/>
+                <Route path="/clinical" element={<ClinicalT/>} />
+                <Route path="/child" element={<ChildTher/>}/>
+                      <Route
+            path="/ourcounsellors"
+            element={
+                <OurCounsellors/>
+            }
+          />
 
           <Route
             path="/register"
             element={
-              <PublicRoute>
                 <Register />
-              </PublicRoute>
             }
           />
 
@@ -53,7 +113,12 @@ function App() {
               </ProtectedRoute>
             }
           />
-
+           <Route
+            path="/adhome"
+            element={
+                <AdminHome />
+            }
+          />
           <Route
             path="/apply-doctor"
             element={
@@ -62,7 +127,13 @@ function App() {
               </ProtectedRoute>
             }
           />
-
+          
+          <Route
+            path="/dash"
+            element={
+                <Dashboard />
+            }
+          />
           <Route
             path="/notifications"
             element={
@@ -80,6 +151,45 @@ function App() {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/admin/appointmentslist"
+            element={
+              <ProtectedRoute>
+                <Appointmentslist />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/adhome/employee/create"
+            element={
+              // <ProtectedRoute>
+                <EmpCreate/>
+              // </ProtectedRoute>
+            }
+          />
+
+
+
+          <Route
+            path="/adhome/employee/detail/:empid"
+            element={
+              // <ProtectedRoute>
+                <EmpDetail/>
+              // </ProtectedRoute>
+            }
+          />
+<Route
+            path="/adhome/employee/edit/:empid"
+            element={
+              // <ProtectedRoute>
+                <EmpEdit/>
+              // </ProtectedRoute>
+            }
+          />
+
+
+
 
           <Route
             path="/admin/doctorslist"
@@ -98,7 +208,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-
+          
           <Route
             path="/book-appointment/:doctorId"
             element={
@@ -130,5 +240,5 @@ function App() {
     </div>
   );
 }
-
 export default App;
+// module.exports= App;

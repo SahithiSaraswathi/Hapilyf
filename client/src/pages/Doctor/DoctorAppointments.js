@@ -4,7 +4,7 @@ import Layout from "../../components/Layout";
 import { showLoading, hideLoading } from "../../redux/alertsSlice";
 import { toast } from "react-hot-toast";
 import axios from "axios";
-import { Table } from "antd";
+import { Button , Table } from "antd";
 import moment from "moment";
 
 function DoctorAppointments() {
@@ -86,7 +86,23 @@ function DoctorAppointments() {
       dataIndex: "actions",
       render: (text, record) => (
         <div className="d-flex">
-          {record.status === "pending" && (
+          {record.status === "approved" && (
+             <Button type="primary" danger
+             className="anchor"
+             onClick={() => changeAppointmentStatus(record, "rejected")}
+           >
+             Reject
+           </Button>
+          )}
+            {record.status === "pending" && (
+             <Button style={{ background: "lime",}}
+             className="anchor"
+             onClick={() => changeAppointmentStatus(record, "approved")}
+           >
+             Approve
+           </Button>
+          )}
+          {/* {record.status === "pending" && (
             <div className="d-flex">
               <h1
                 className="anchor px-2"
@@ -101,7 +117,7 @@ function DoctorAppointments() {
                 Reject
               </h1>
             </div>
-          )}
+          )} */}
         </div>
       ),
     },
