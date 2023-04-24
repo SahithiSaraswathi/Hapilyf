@@ -3,6 +3,7 @@ import React from "react";
 import moment from "moment";
 import { useState } from "react";
 import axios from 'axios'
+const BASE_URL= 'localhost://5000';
 function DoctorForm({ onFinish, initialValues }) {
   const [input,setInput]=useState({fullname:"",username:"",password:"",email:"",cpassword:"",number:"",type:"User"});
   const [image,setImage]=useState({data:''});
@@ -15,7 +16,8 @@ function DoctorForm({ onFinish, initialValues }) {
 }
   let formData = new FormData()
   formData.append('file', image.data)
-  axios.post('http://localhost:5000/image', 
+  console.log(BASE_URL)
+  axios.post(`${BASE_URL}/image`, 
   formData
   )
 

@@ -1,6 +1,7 @@
 const express = require("express");
 var path=require('path')
 const app = express();
+const BASE_URL=process.env.BASE_URL;
 require("dotenv").config();
 const cors = require('cors')
 const multer = require('multer')
@@ -34,7 +35,7 @@ const options={
     },
     servers:[
       {
-        url: 'http://localhost:5000/'
+        url: `${BASE_URL}`
       }
     ]
   },

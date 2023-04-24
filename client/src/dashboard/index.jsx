@@ -137,11 +137,7 @@ import { BrowserRouter, Link, Route, Routes, useNavigate } from 'react-router-do
 // import Header from "../../components/Header";
 // import Link from "@mui/material";
 import StatBox from "./Statbox";
-//import EmpListing from "./EmpListing";
-import EmpCreate from "./EmpCreate";
-import EmpDetail from "./EmpDetail";
-import EmpEdit from "./EmpEdit";
-import b from "./users_image.jpg"
+
 
 //const ct = require('../components/count');
 const Dashboard = () => {

@@ -32,9 +32,7 @@ import AdminHome from "./pages/Admin/AdminHome";
 import OldHome from "./components/Home/Home"
 import OurServices from "./components/OurServices/OurServices";
 import OurCounsellors from "./components/OurCounsellors/OurCounsellors";
-import EmpCreate from "./dashboard/EmpCreate";
-import EmpDetail from "./dashboard/EmpDetail";
-import EmpEdit from "./dashboard/EmpEdit";
+
 // import Det from "./components/count";
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -159,38 +157,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-
-          <Route
-            path="/adhome/employee/create"
-            element={
-              // <ProtectedRoute>
-                <EmpCreate/>
-              // </ProtectedRoute>
-            }
-          />
-
-
-
-          <Route
-            path="/adhome/employee/detail/:empid"
-            element={
-              // <ProtectedRoute>
-                <EmpDetail/>
-              // </ProtectedRoute>
-            }
-          />
-<Route
-            path="/adhome/employee/edit/:empid"
-            element={
-              // <ProtectedRoute>
-                <EmpEdit/>
-              // </ProtectedRoute>
-            }
-          />
-
-
-
-
           <Route
             path="/admin/doctorslist"
             element={
